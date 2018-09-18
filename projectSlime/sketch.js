@@ -3,6 +3,7 @@ var jogador;
 var solo, final;
 var auxiliar;
 var jump = 1;
+var dash = 1;
 var wall = new Group();
 
 function victory(){
@@ -34,6 +35,17 @@ function move(){
 		jogador.setVelocity(auxiliar,-7);
 		jump -= 1;
 	}
+	if(keyWentDown('P') && dash > 0){
+		auxiliar = jogador.velocity.y;
+		if(keyDown('A')){
+			jogador.setVelocity(-10,auxiliar);
+		}else{
+			if(keyDown('D')){
+					jogador.setVelocity(10,auxiliar);
+			}
+		}
+		dash -= 1;
+	}
 	if(jogador.touching.bottom && !keyDown('D') && !keyDown('A')){
 		jogador.friction = 0.07;
 	}else{
@@ -41,6 +53,7 @@ function move(){
 	}
 	if(jogador.touching.bottom || jogador.touching.left || jogador.touching.right){
 		jump = 1;
+		dash = 1;
 	}
 }
 
