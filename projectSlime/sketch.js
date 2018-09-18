@@ -98,6 +98,6 @@ function draw() {
     text("utilize as nuvens para chegar no final", 15, 100);
     text("sem cair no buraco e vencer.", 15, 150);    
     text("Tu venceu! Aperte R para reiniciar o jogo.", width+20000, 50);
-    text(jogador.position.x - 400, jogador.position.x - 400, 100);
+    text(Math.trunc( jogador.position.x - 400 ), jogador.position.x - 400, 100);
     victory();    
 }
