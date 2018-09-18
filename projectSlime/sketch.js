@@ -8,10 +8,12 @@ var wall = new Group();
 
 function victory(){
     if(keyWentDown('R')){
-		location.reload();
+	jogador.position.x = 400;
+	jogador.position.y = height - 80;
 	}
     if(jogador.position.y>height+80){
-        location.reload();
+        jogador.position.x = 400;
+	jogador.position.y = height - 80;
     }
 }
 
@@ -96,5 +98,6 @@ function draw() {
     text("utilize as nuvens para chegar no final", 15, 100);
     text("sem cair no buraco e vencer.", 15, 150);    
     text("Tu venceu! Aperte R para reiniciar o jogo.", width+20000, 50);
+    text(jogador.position.x - 400, 15, 100);
     victory();    
 }
